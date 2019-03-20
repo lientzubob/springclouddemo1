@@ -7,6 +7,8 @@ server:
   port: 7001
 spring: 
   profiles: dev 
+  application:
+    name: eureka-server-7001 
 eureka:
   instance:
     hostname: eureka7001.com
@@ -17,11 +19,11 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka/
 ---
 server:
-  port: 7011
+  port: 8001
 spring:
   profiles: test
   application:
-    name: config-client
+    name: eureka-server-7001 
 eureka:
   instance:
     hostname: eureka7001.com
