@@ -12,7 +12,7 @@ spring:
     name: customer
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.206.150:3306/springclouddb2
+    url: jdbc:mysql://192.168.206.150:3306/springclouddb1
     username: root
     password: sa123456
   jpa:
