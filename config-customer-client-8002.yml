@@ -1,0 +1,44 @@
+spring: 
+  profiles: 
+    active: 
+    - dev
+---
+server:
+  port: 8002
+
+spring:
+  profiles: dev
+  application:
+    name: customer
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.206.150:3306/springclouddb1
+    username: root
+    password: sa123456
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client: 
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance: 
+    instance-id: customer8001
+    prefer-ip-address: true
+
+info:
+  app.name: springcloud
+  company.name: lien
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+  
+management:
+  security:
+    enabled: false
+  endpoints: 
+   web:
+     exposure: 
+       include: hystrix.stream
